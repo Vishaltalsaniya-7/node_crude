@@ -29,21 +29,22 @@ A simple, modular Node.js + Express REST API with MVC file structure and full CR
 
 1. Clone the repo:
 
-   git clone https://github.com/Vishaltalsaniya-7/node_crude.git
-   cd node_crude
+        git clone https://github.com/Vishaltalsaniya-7/node_crude.git
+
+        cd node_crude
 
 2. Install dependencies:
 
-    npm install
+            npm install
 
 3. Create a .env file in the root directory and add your environment variables:
 
-    PORT=3000
-    DATABASE_URL=your_database_connection_string
+        PORT=3000
+        DATABASE_URL=your_database_connection_string
 
 4. Running Locally
 
-    npm start
+        npm start
 
     The API will be available at http://localhost:3000.
 
