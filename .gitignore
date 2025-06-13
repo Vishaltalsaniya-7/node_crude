@@ -1,0 +1,9 @@
+
+# Node modules
+node_modules/
+
+# Ignore environment variables
+.env
+
+
+.prettierrc 
