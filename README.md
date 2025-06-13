@@ -34,44 +34,42 @@ A simple, modular Node.js + Express REST API with MVC file structure and full CR
 
 2. Install dependencies:
 
-npm install
+    npm install
 
 3. Create a .env file in the root directory and add your environment variables:
 
-PORT=3000
-DATABASE_URL=your_database_connection_string
+    PORT=3000
+    DATABASE_URL=your_database_connection_string
 
 4. Running Locally
 
-npm start
+    npm start
 
-The API will be available at http://localhost:3000.
+    The API will be available at http://localhost:3000.
 
 5. Build and Run with Docker
-   Start the app with:
 
-docker-compose up
-This will spin up the app and any linked services defined in docker-compose.yml.
+        docker-compose up
 
 6. API Endpoints
 
-GET /products Get all items (filter by id, name, pagination supported)
+        GET /products Get all items (filter by id, name, pagination supported)
 
-POST /products Create new item
+        POST /products Create new item
 
-PUT /products/:id Update item by ID
+        PUT /products/:id Update item by ID
 
-DELETE /products/:id Delete item by ID
+        DELETE /products/:id Delete item by ID
 
 7. Environment Variables
 
-PORT — Port on which the server runs (default: 3000)
+    PORT — Port on which the server runs (default: 3000)
 
-DATABASE_URL — Database connection string
+    DATABASE_URL — Database connection string
 
-License
+### License
 MIT © Vishaltalsaniya
 
-Contact
+### Contact
 Feel free to open issues or submit pull requests!
 Reach me at: vishaltalsaniya991@gmail.com
