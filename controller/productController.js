@@ -1,4 +1,23 @@
 const Product = require("../model/productModel");
+const { jwtAuthMiddleware, generateToken } = require("../jwt");
+
+exports.LoginProduct = async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const user = await Product.findOne({ username });
+    if (!user || !(await user.comparePassword(password))) {
+      return res.status(401).json({ error: "username and password not match" });
+    }
+    const payload = {
+      id: user.id,
+      username: user.username,
+    };
+    const token = generateToken(payload);
+    return res.status(200).json({ message: "Login successful", token });
+  } catch (err) {
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
 
 exports.CreateProduct = async (req, res) => {
   const product = req.body;
@@ -12,7 +31,15 @@ exports.CreateProduct = async (req, res) => {
     }
     const newProduct = new Product(product);
     await newProduct.save();
-    res.status(201).json({ message: "Product create", newProduct });
+    const Token = generateToken({
+      id: newProduct.id,
+      name: newProduct.name,
+      category: newProduct.category,
+      username: newProduct.username,
+    });
+    res
+      .status(201)
+      .json({ message: "Product create", newProduct, token: Token });
   } catch (err) {
     res.status(400).json({ message: error.message });
   }
@@ -113,3 +140,9 @@ exports.DeleteById = async (req, res) => {
   }
 };
 
+// module.exports = {
+//   GetProduct,
+//   CreateProduct,
+//   UpdateById,
+//   DeleteById,
+// };
